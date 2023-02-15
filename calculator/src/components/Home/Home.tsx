@@ -7,7 +7,7 @@ const Home: FC = () => {
 
   console.log('[ Reducer ]', calculator);
 
-  return <div>Home</div>;
+  return <div>Home {calculator.value}</div>;
 };
 
 export default Home;
