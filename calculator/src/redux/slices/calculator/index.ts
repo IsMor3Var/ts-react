@@ -18,4 +18,5 @@ const calculatorSlice = createSlice({
   }
 });
 
+export const { setValue } = calculatorSlice.actions;
 export default calculatorSlice.reducer;
