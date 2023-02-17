@@ -16,7 +16,9 @@
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module",
-        "project": "calculator/tsconfig.json"
+        "project": "tsconfig.json",
+        "tsconfigRootDir": "./calculator/",
+        "parser": "@typescript-eslint/parser"
     },
     "plugins": [
         "react",
