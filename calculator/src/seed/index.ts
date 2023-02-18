@@ -1,3 +1,1 @@
-import SeedNumbers from './NumbersButtons.json';
-
-export { SeedNumbers };
+export { BotoneraData } from './botonera';

@@ -1,3 +1,2 @@
-export { Operation } from './Operations';
+export { Botonera } from './Botonera';
 export { Panel } from './Panel';
-export { Numbers } from './Numbers';
