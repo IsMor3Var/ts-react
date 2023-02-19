@@ -3,7 +3,7 @@ import type { FC } from 'react';
 
 const Panel: FC = () => {
   const { calculator } = useCustomSelector((state) => state);
-  return <h2>{calculator.value}</h2>;
+  return <h2>{calculator.valueScreen}</h2>;
 };
 
 export default Panel;

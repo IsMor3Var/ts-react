@@ -1,19 +1,36 @@
 import { ButtonUI } from 'components/ui';
 import type { FC } from 'react';
 import { useCustomDispatch } from 'hooks/redux';
-import { writePanel } from 'redux/slices/calculator';
+import {
+  addDigit,
+  addOperation,
+  cleanScreen,
+  calculateResult
+} from 'redux/slices/calculator';
 import { BotoneraData } from 'seed';
 
 const BotoneraComponent: FC = () => {
   const dispatch = useCustomDispatch();
 
-  const handleWritePanel = (value: number | string): void => {
-    dispatch(writePanel(value.toString()));
+  const handleAddDigit = (value: string): void => {
+    dispatch(addDigit(value));
+  };
+
+  const handleAddOperation = (value: string): void => {
+    dispatch(addOperation(value));
+  };
+
+  const handleResult = (): void => {
+    dispatch(calculateResult(''));
+  };
+
+  const handleReset = (): void => {
+    dispatch(cleanScreen(''));
   };
 
   return (
     <div>
-      {BotoneraData.map(({ value, label, id }) => (
+      {BotoneraData.map(({ value, label, id, group }) => (
         <ButtonUI
           key={id}
           title={`${label}`}
@@ -23,7 +40,10 @@ const BotoneraComponent: FC = () => {
           radius="10px"
           width="50px"
           onClick={() => {
-            handleWritePanel(value);
+            group === 'number' && handleAddDigit(value);
+            group === 'operation' && handleAddOperation(value);
+            group === 'result' && handleResult();
+            group === 'reset' && handleReset();
           }}
         >
           <span>{label}</span>
