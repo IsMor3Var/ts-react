@@ -1,5 +1,5 @@
 export const ThemeDark = {
-  body: '#000000',
+  body: '#282727',
   text: '#FFFFFF',
   borderColor: '#FFFFFF'
 };
