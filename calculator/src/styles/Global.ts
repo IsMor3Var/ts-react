@@ -10,6 +10,10 @@ interface GlobalThemeProps {
 
 export const GlobalStyles = createGlobalStyle`
   body {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
     margin: 0px 0px;
     padding: 0px 0px;
     font-family: sans-serif;

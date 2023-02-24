@@ -8,6 +8,7 @@ import {
   calculateResult
 } from 'redux/slices/calculator';
 import { BotoneraData } from 'seed';
+import { BotoneraContainer } from './styles';
 
 const BotoneraComponent: FC = () => {
   const dispatch = useCustomDispatch();
@@ -29,7 +30,7 @@ const BotoneraComponent: FC = () => {
   };
 
   return (
-    <div>
+    <BotoneraContainer>
       {BotoneraData.map(({ value, label, id, group }) => (
         <ButtonUI
           key={id}
@@ -49,7 +50,7 @@ const BotoneraComponent: FC = () => {
           <span>{label}</span>
         </ButtonUI>
       ))}
-    </div>
+    </BotoneraContainer>
   );
 };
 

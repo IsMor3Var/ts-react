@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { ButtonStyle } from './style';
 
 interface Props {
   title: string;
@@ -22,19 +23,19 @@ const Button: FC<Props> = ({
   width
 }) => {
   return (
-    <button
+    <ButtonStyle
       title={title}
       onClick={onClick}
-      style={{
-        backgroundColor: color,
-        border,
-        borderRadius: radius,
-        height,
-        width
-      }}
+      // style={{
+      //   backgroundColor: color,
+      //   border,
+      //   borderRadius: radius,
+      //   height,
+      //   width
+      // }}
     >
       {children}
-    </button>
+    </ButtonStyle>
   );
 };
 

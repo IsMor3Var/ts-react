@@ -1,14 +1,14 @@
-import { Fragment } from 'react';
 import type { FC } from 'react';
 import { Panel, Botonera } from 'components/Calculator';
+import { Container } from './styles';
 
 const Home: FC = () => {
   return (
-    <Fragment>
+    <Container>
       <h2>Calculator</h2>
       <Panel />
       <Botonera />
-    </Fragment>
+    </Container>
   );
 };
 
