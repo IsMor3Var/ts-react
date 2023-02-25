@@ -6,7 +6,7 @@ interface Props {
   children?: JSX.Element | JSX.Element[];
   height: string;
   onClick: () => void;
-  radius: string;
+  radius?: string;
   width: string;
   border: string;
   color: string;
@@ -26,13 +26,15 @@ const Button: FC<Props> = ({
     <ButtonStyle
       title={title}
       onClick={onClick}
-      style={{
-        backgroundColor: color,
-        border,
-        borderRadius: radius,
-        height,
-        width
-      }}
+      style={
+        {
+          // backgroundColor: color,
+          // border,
+          // // borderRadius: radius,
+          // height,
+          // width
+        }
+      }
     >
       {children}
     </ButtonStyle>

@@ -1,1 +1,1 @@
-export { BotoneraData } from './botonera';
+export { SeedNumbers, SeedAllClear, SeedEqual, SeedSigns } from './botonera';
