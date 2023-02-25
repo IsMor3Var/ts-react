@@ -31,7 +31,6 @@
         "@typescript-eslint/consistent-type-imports": "warn",
         "@typescript-eslint/no-floating-promises": "warn",
         "react/react-in-jsx-scope": "off",
-        "no-unused-expressions": "off",
-        "@typescript-eslint/no-unused-expressions": "warn"
+        "no-unused-expressions": "off"
     }
 }

@@ -36,9 +36,9 @@ const BotoneraComponent: FC = () => {
           key={id}
           title={`${label}`}
           border="none"
-          color="cyan"
-          height="auto"
-          radius="10px"
+          color="#5e4242"
+          height="50px"
+          radius="50%"
           width="50px"
           onClick={() => {
             group === 'number' && handleAddDigit(value);

@@ -1,9 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const ButtonStyle = styled.div`
-  width: 100px;
+  ${({ style }) => css`
+    background-color: ${style?.backgroundColor},
+    border: ${style?.border},
+    border-radius: ${style?.borderRadius},
+    height: ${style?.height},
+    width: ${style?.width}
+  `}
   border: 1px solid black;
-  box-shadow: 0 0 10px rgba(119, 118, 118, 0.5);
   padding: 1rem;
-  background-color: #334400;
+  align-content: center;
 `;

@@ -26,13 +26,13 @@ const Button: FC<Props> = ({
     <ButtonStyle
       title={title}
       onClick={onClick}
-      // style={{
-      //   backgroundColor: color,
-      //   border,
-      //   borderRadius: radius,
-      //   height,
-      //   width
-      // }}
+      style={{
+        backgroundColor: color,
+        border,
+        borderRadius: radius,
+        height,
+        width
+      }}
     >
       {children}
     </ButtonStyle>
