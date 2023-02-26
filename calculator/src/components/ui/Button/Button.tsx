@@ -4,37 +4,24 @@ import { ButtonStyle } from './style';
 interface Props {
   title: string;
   children?: JSX.Element | JSX.Element[];
-  height: string;
+  height?: string;
   onClick: () => void;
   radius?: string;
-  width: string;
-  border: string;
-  color: string;
+  width?: string;
+  border?: string;
+  color?: string;
+  gridArea?: string;
 }
 
-const Button: FC<Props> = ({
-  title,
-  border,
-  color,
-  children,
-  height,
-  onClick,
-  radius,
-  width
-}) => {
+const Button: FC<Props> = ({ title, children, color, onClick, gridArea }) => {
   return (
     <ButtonStyle
       title={title}
       onClick={onClick}
-      style={
-        {
-          // backgroundColor: color,
-          // border,
-          // // borderRadius: radius,
-          // height,
-          // width
-        }
-      }
+      style={{
+        gridArea,
+        color
+      }}
     >
       {children}
     </ButtonStyle>

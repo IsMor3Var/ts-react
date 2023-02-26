@@ -12,11 +12,18 @@ export const SeedEqual: SeedBotonera = {
   value: '='
 };
 
-export const SeedAllClear: SeedBotonera = {
-  id: uuid(),
-  label: 'CE',
-  value: 'CE'
-};
+export const SeedClear: SeedBotonera[] = [
+  {
+    id: uuid(),
+    label: 'CE',
+    value: 'CE'
+  },
+  {
+    id: uuid(),
+    label: 'C',
+    value: 'C'
+  }
+];
 
 export const SeedSigns: SeedBotonera[] = [
   {
@@ -36,7 +43,7 @@ export const SeedSigns: SeedBotonera[] = [
   },
   {
     id: uuid(),
-    label: '÷',
+    label: '/',
     value: '÷'
   }
 ];

@@ -1,36 +1,29 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const ButtonStyle = styled.button`
-  /* ${({ style }) => css`
-    background-color: ${style?.backgroundColor},
-    border: ${style?.border},
-    border-radius: ${style?.borderRadius},
-    height: ${style?.height},
-    width: ${style?.width}
-  `} */
-
+  width: 100%;
+  height: 100%;
   align-items: center;
   appearance: none;
-  background-color: #fff;
-  border-radius: 24px;
+  background-color: #282a35;
+  border-radius: 5px;
   border-style: none;
   box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
     rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
   box-sizing: border-box;
-  color: #3c4043;
+  color: #fff;
   cursor: pointer;
   display: inline-flex;
   fill: currentcolor;
   font-family: 'Google Sans', Roboto, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  height: 28px;
+  font-size: 24px;
+  font-weight: bold;
   justify-content: center;
   letter-spacing: 0.25px;
   line-height: normal;
-  max-width: 100%;
+  /* max-width: 100%; */
   overflow: visible;
-  padding: 2px 24px;
+  padding: 28px 10px;
   position: relative;
   text-align: center;
   text-transform: none;
@@ -39,13 +32,12 @@ export const ButtonStyle = styled.button`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: auto;
   will-change: transform, opacity;
   z-index: 0;
 
   :hover {
-    background: #f6f9fe;
-    color: #174ea6;
+    background-color: #34363f;
+    color: #fff;
   }
 
   :active {
