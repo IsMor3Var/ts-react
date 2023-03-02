@@ -1,13 +1,14 @@
 import { useCustomSelector } from 'hooks/redux';
 import type { FC } from 'react';
+import { PanelContainer } from './style';
 
 const Panel: FC = () => {
   const { calculator } = useCustomSelector((state) => state);
   return (
-    <div>
-      <h2>{calculator.valueScreen}</h2>
-      <h3>{calculator?.valueNow}</h3>
-    </div>
+    <PanelContainer>
+      <span>{calculator.valueScreen}</span>
+      <span>{calculator?.valueNow}</span>
+    </PanelContainer>
   );
 };
 

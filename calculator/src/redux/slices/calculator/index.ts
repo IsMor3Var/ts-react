@@ -23,7 +23,7 @@ const calculatorSlice = createSlice({
         ? (state.valueScreen = action.payload.trim())
         : (state.valueScreen = `${state.valueScreen} ${action.payload.trim()}`);
 
-      state.valueNow === 0 && (state.valueNow = Number(action.payload));
+      console.log('[ MSG ]', `${state.valueNow}${Number(action.payload)}`);
 
       state.valueNow !== 0 && state.operation !== ''
         ? (state.valueNow = CalculateOperation({
@@ -31,7 +31,9 @@ const calculatorSlice = createSlice({
             operation: state.operation,
             param2: Number(action.payload)
           }))
-        : (state.valueNow = Number(action.payload));
+        : (state.valueNow = Number(
+            `${state.valueNow}${Number(action.payload)}`
+          ));
     },
     addOperation: (state, action: PayloadAction<string>) => {
       state.valueScreen = `${state.valueScreen} ${action.payload.trim()}`;
