@@ -4,7 +4,9 @@ import {
   addDigit,
   addOperation,
   calculateResult,
-  cleanScreen
+  cleanScreen,
+  cleanOne,
+  addPoint
 } from 'redux/slices/calculator';
 import { useCustomDispatch } from 'hooks/redux';
 import { ButtonUI } from 'components/ui';
@@ -29,13 +31,21 @@ const BotoneraComponent: FC = () => {
     dispatch(cleanScreen(''));
   };
 
+  const handleResetOne = (): void => {
+    dispatch(cleanOne(''));
+  };
+
+  const handleAddPoint = (value: string): void => {
+    dispatch(addPoint(value));
+  };
+
   return (
     <BotoneraContainer>
       <ButtonUI
         key={SeedClear[1].id}
         title={`${SeedClear[1].value}`}
         onClick={() => {
-          console.log('[ delete end chart ]');
+          handleResetOne();
         }}
         color="#16E1B6"
       >
@@ -197,7 +207,7 @@ const BotoneraComponent: FC = () => {
         key={'.'}
         title="."
         onClick={() => {
-          console.log('[ MSG . ]');
+          handleAddPoint('.');
         }}
       >
         <span>.</span>

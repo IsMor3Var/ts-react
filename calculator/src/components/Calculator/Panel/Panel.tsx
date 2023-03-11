@@ -6,7 +6,7 @@ const Panel: FC = () => {
   const { calculator } = useCustomSelector((state) => state);
   return (
     <PanelContainer>
-      <span>{calculator.valueScreen}</span>
+      {calculator.valueScreen !== '0' && <span>{calculator.valueScreen}</span>}
       <span>{calculator?.valueNow}</span>
     </PanelContainer>
   );
