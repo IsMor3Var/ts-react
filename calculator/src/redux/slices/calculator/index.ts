@@ -6,7 +6,14 @@ interface CalculatorState {
   valueOperationBefore: string;
   valueOperationAfter: string;
   operation: string;
-  history: string[];
+  history: HistoryState[];
+}
+interface HistoryState {
+  valueScreen: string;
+  valueNow: number;
+  valueOperationBefore: string;
+  valueOperationAfter: string;
+  operation: string;
 }
 
 const initialState: CalculatorState = {
@@ -15,7 +22,15 @@ const initialState: CalculatorState = {
   valueOperationBefore: '',
   valueOperationAfter: '',
   operation: '',
-  history: []
+  history: [
+    {
+      valueScreen: '0',
+      valueNow: 0,
+      valueOperationBefore: '',
+      valueOperationAfter: '',
+      operation: ''
+    }
+  ]
 };
 
 const calculatorSlice = createSlice({
@@ -40,6 +55,14 @@ const calculatorSlice = createSlice({
         operation: state.operation,
         param2: Number(state.valueOperationAfter)
       });
+
+      state.history.push({
+        valueScreen: state.valueScreen,
+        valueNow: state.valueNow,
+        valueOperationBefore: state.valueOperationBefore,
+        valueOperationAfter: state.valueOperationAfter,
+        operation: state.operation
+      });
     },
     addOperation: (state, action: PayloadAction<string>) => {
       state.operation = action.payload;
@@ -51,32 +74,38 @@ const calculatorSlice = createSlice({
         state.valueOperationBefore = `${state.valueNow}`;
         state.valueOperationAfter = '';
       }
+
+      state.history.push({
+        valueScreen: state.valueScreen,
+        valueNow: state.valueNow,
+        valueOperationBefore: state.valueOperationBefore,
+        valueOperationAfter: state.valueOperationAfter,
+        operation: state.operation
+      });
     },
     calculateResult: (state, _) => {
-      state.history.push(`${state.valueScreen} = ${state.valueNow}`);
       state.operation = '';
       state.valueOperationBefore = `${state.valueNow}`;
       state.valueOperationAfter = '';
       state.valueScreen = '0';
     },
     cleanOne: (state, _) => {
-      const word: string = state.valueScreen;
-      const valueOperationAfter: string = state.valueOperationAfter;
-      const wordEnd: string = word.substring(0, word.length - 1);
-
-      const valueOperationAfterEnd = valueOperationAfter.substring(
+      const history: HistoryState[] = [...state.history];
+      const historySplice: HistoryState[] = history.splice(
         0,
-        valueOperationAfter.length - 1
+        history.length - 1
       );
 
-      state.valueScreen = wordEnd;
-      state.valueOperationAfter = valueOperationAfterEnd;
+      const historyPop = historySplice.pop();
 
-      state.valueNow = CalculateOperation({
-        param1: Number(state.valueOperationBefore),
-        operation: state.operation,
-        param2: Number(state.valueOperationAfter)
-      });
+      if (historyPop !== undefined) {
+        state.valueScreen = historyPop.valueScreen;
+        state.valueNow = historyPop.valueNow;
+        state.valueOperationAfter = historyPop.valueOperationAfter;
+        state.valueOperationBefore = historyPop.valueOperationBefore;
+        state.operation = historyPop.operation;
+        state.history = historySplice;
+      }
     },
     cleanScreen: (state, _) => {
       state.valueScreen = '0';

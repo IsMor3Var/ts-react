@@ -5,8 +5,6 @@ interface IValuesOperation {
 }
 
 export const CalculateOperation = (input: IValuesOperation): number => {
-  console.log('[ INPUT ]', input);
-
   let result: number;
   switch (input.operation) {
     case '+':
