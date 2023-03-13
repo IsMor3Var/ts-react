@@ -1,6 +1,7 @@
 {
     "git.ignoreLimitWarning": true,
     "eslint.workingDirectories": [
-        "./calculator"
+        "./calculator",
+        "./chess"
       ]
 }
