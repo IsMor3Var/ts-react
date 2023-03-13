@@ -1,11 +1,11 @@
-import React from 'react';
+import { type FC } from "react";
 
-function App() {
+const App: FC = () => {
   return (
     <div className="App">
       <h1>Chess App</h1>
     </div>
   );
-}
+};
 
 export default App;
