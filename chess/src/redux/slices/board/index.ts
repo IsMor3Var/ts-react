@@ -1,14 +1,32 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
+interface IBoard {
+  turn: string;
+  history: [];
+  selectedPiece: object | null;
+  possibleMoves: [];
+  isCheck: boolean;
+  winner: string | null;
+}
+
+const initialState: IBoard = {
+  turn: 'white',
+  history: [],
+  selectedPiece: null,
+  possibleMoves: [],
+  isCheck: false,
+  winner: null
+};
+
 const SliceBoard = createSlice({
   name: 'Board',
-  initialState: 0,
+  initialState,
   reducers: {
-    increment: (state, action: PayloadAction<number>) => state + action.payload
+    increment: (state, action: PayloadAction<number>) => {
+      console.log('[ MSG ]');
+    }
   }
 });
-// now available:
-SliceBoard.actions.increment(2);
 
 export const { increment } = SliceBoard.actions;
 export default SliceBoard.reducer;
